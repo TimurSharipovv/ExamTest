@@ -30,6 +30,8 @@ namespace ExamTest
             using var db = new AppDbContext();
 
             var user = db.Users.FirstOrDefault(u => u.Login == login && u.Password == password);
+            MainWindow.name = db.Users.Select(p => p.Name).FirstOrDefault();
+            MainWindow.role = db.Users.Select(p => p.Role).FirstOrDefault();
 
             if (user != null) 
             {

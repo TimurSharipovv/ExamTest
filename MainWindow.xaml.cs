@@ -18,6 +18,8 @@ namespace ExamTest
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static string name = "Guest";
+        public static string role = "Guest";
     public MainWindow()
         {
             InitializeComponent();
@@ -27,11 +29,16 @@ namespace ExamTest
             int discount = db.Products.Select(p => p.Discount).FirstOrDefault();
             int quantity = db.Products.Select(p => p.Discount).FirstOrDefault();
 
+            UserInfo.Text = $"{name} ({role})";
+
             ChangeBackgroundBrush(discount, quantity);
         }
 
         private void ButtonExitClick(object sender, RoutedEventArgs e)
         {
+            MainWindow.name = "Guest";
+            MainWindow.role = "Guest";
+
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();
             Close();
@@ -50,6 +57,13 @@ namespace ExamTest
             }
 
             DiscountSize.Text = $"Скидка {discount}%";
+        }
+
+        private void ButtonBackClick(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            Close();
         }
     }
 }
