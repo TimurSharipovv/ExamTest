@@ -28,7 +28,20 @@ namespace ExamTest
 
             int discount = db.Products.Select(p => p.Discount).FirstOrDefault();
             int quantity = db.Products.Select(p => p.Discount).FirstOrDefault();
+            int price = db.Products.Select(p => p.Price).FirstOrDefault();
+            string category = db.Products.Select(p => p.Category).FirstOrDefault();
+            string name = db.Products.Select(p => p.Name).FirstOrDefault();
+            string supplier = db.Products.Select(p => p.Supplier).FirstOrDefault();
+            string manufacturer = db.Products.Select(p => p.Manufacturer).FirstOrDefault();
+            string description = db.Products.Select(p => p.Description).FirstOrDefault();
+            string unit = db.Products.Select(p => p.Unit).FirstOrDefault();
 
+            CategoryAndName.Text = $"{category} и {name}";
+            Description.Text = $"{description}";
+            Manufacturer.Text = $"{manufacturer}";
+            Supplier.Text = $"{supplier}";
+            Price.Text = $"{price}";
+            Unit.Text = $"{unit}";
             UserInfo.Text = $"{name} ({role})";
 
             ChangeBackgroundBrush(discount, quantity);

@@ -12,10 +12,20 @@ namespace ExamTest.Models
         [Column("price")]
         public int Price { get; set; }
         [Column("description")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
         [Column("discount")]
         public int Discount { get; set; }
         [Column("quantity")]
         public int Quantity { get; set; }
+        [Column("unit")]
+        public string? Unit {  get; set; }
+        [Column("supplier")]
+        public string? Supplier { get; set; }
+        [Column("manufacturer")]
+        public string? Manufacturer { get; set; }
+        [Column("category")]
+        public string? Category { get; set; }
+        [Column("name")]
+        public string? Name { get; set; }
     }
 }
